@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="./module/splitText.js"></script>
+</head>
+<body>
+
+<div style="font-size:80px" id="quote">SplitText makes it easy to break apart the text in an HTML element so that each character, word, and/or line is wrapped in its own div tag.</div>
+
+<button id="animate">animate</button>
+
+
+<script>
+    var tl = new TimelineLite,
+    mySplitText = new SplitText("#quote", {type:"words,chars"}),
+    chars = mySplitText.chars;
+
+    TweenLite.set("#quote", {perspective:400});
+
+    tl.staggerFrom(chars, 0.8, {opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:Back.easeOut}, 0.01, "+=0");
+
+</script>
+</body>
+</html>
